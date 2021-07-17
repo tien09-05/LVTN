@@ -1,0 +1,28 @@
+.challenges-diff__img {
+    width: 220px;
+    height: 300px;
+}
+.challenges-diff-product{
+    display: flex;
+}
+.challenges-diff__name:hover{
+    color: orange !important;
+}
+@media screen and (max-width: 768px) {
+    .hide-on-mobile {
+        display: none;
+    }
+    .entry {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    
+    .challenges-diff__img {
+        width: 150px !important;
+        height: 240px !important;
+    }
+    .challenges-diff__info {
+        font-size: 9px !important;
+    }
+    
+}

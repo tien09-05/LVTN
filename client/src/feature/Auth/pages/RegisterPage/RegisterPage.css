@@ -1,0 +1,43 @@
+.form-control {
+    border: none !important;
+    background-color: #000 !important;
+    border-bottom: 1px solid #fff !important;
+    outline: none;
+    color: #fff !important;
+}
+.form-control:focus {
+
+    background-color: #000 !important;
+}
+
+.nav-pills .nav-link {
+    border-radius: 0;
+    color: rgba(0, 0, 0, 0.55);
+    font-weight: bold;
+}
+.nav-pills .nav-link.active {
+    color: #000;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.fas.fa-crown {
+    display: none;
+}
+.nav-pills .nav-link.active .fas.fa-crown {
+    display: block;
+}
+
+@media screen and (max-width: 768px) {
+    .nav-pills .nav-item {
+        min-width: 68px !important;
+    }
+    .nav-pills .nav-item a {
+        padding: 8px !important;
+        font-size: 12px;
+    }
+    .fas.fa-crown {
+        font-size: 12px !important;
+        padding: 0 !important;
+    }
+}

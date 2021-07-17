@@ -1,0 +1,61 @@
+
+.btn__trailer{
+    font-weight: bold ;
+    background: transparent !important;
+    color: #eea326 !important;
+    border: 1px solid #eea326!important;
+    margin-left: 30px;
+}
+.btn__trailer:hover{
+    color: #000 !important;
+    background-image: linear-gradient(to left, #b72126, #eea326) !important;
+    border: none !important;
+}
+.btn__book:hover{
+    background-image: none;
+    border: 1px solid #e79a23;
+    color: #e79a23 !important;
+}
+.badge-warning{
+    color: #212529 !important;
+    background-color: #ffc107;
+    margin-right: 10px;
+}
+.item__content {
+    color: #fff;
+    position: absolute;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 41px;
+    width: 70%;
+    display: none;
+}
+
+.item.active .item__content{
+    display: block;
+}
+.item__text {
+    font-size: 24px;
+    text-align: center;
+    font-weight: bold;
+}
+.item__rating {
+    text-align: center;
+}
+
+.fix-img-pane {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+}
+@media screen and (max-width: 1024px) {
+    .description {
+        height: 100px;
+        overflow: hidden;
+    }
+    .btn__book {
+        width: 100%;
+    }
+}
