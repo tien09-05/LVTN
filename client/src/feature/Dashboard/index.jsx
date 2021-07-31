@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./index.css";
 import { Link, useHistory } from "react-router-dom";
 import { Layout, Menu } from "antd";
@@ -36,6 +36,8 @@ var ID = function () {
 
 const Dashboard = () => {
     const history = useHistory();
+    const [isAdmin, setIsAdmin] = useState(false);
+    // check employes
     useEffect(() => {
         if (
             !localStorage.getItem("auth") ||
@@ -44,8 +46,14 @@ const Dashboard = () => {
             )
         ) {
             history.push("/");
+        } else {
+            setIsAdmin(
+                JSON.parse(localStorage.getItem("auth")).user.chucvu ===
+                    "Quản Lý"
+            );
         }
-    });
+    }, [history]);
+    console.log(isAdmin);
     return (
         <Layout style={{ minHeight: "100vh", marginTop: "100px" }}>
             <Sider style={{ minWidth: "260px !important" }}>
@@ -70,7 +78,8 @@ const Dashboard = () => {
                     <SubMenu
                         icon={<HomeOutlined />}
                         title="Quản lí chi nhánh"
-                        key={ID()}>
+                        key={ID()}
+                        disabled={!isAdmin}>
                         <Menu.Item key={ID()}>
                             <Link to="/dashboard/chinhanh">
                                 Xem danh sách chi nhánh
@@ -87,7 +96,8 @@ const Dashboard = () => {
                     <SubMenu
                         icon={<ShopOutlined />}
                         title="Quản lí phòng"
-                        key={ID()}>
+                        key={ID()}
+                        disabled={!isAdmin}>
                         <Menu.Item key={ID()}>
                             <Link to="/dashboard/phong">
                                 Xem danh sách phòng
@@ -102,7 +112,8 @@ const Dashboard = () => {
                     <SubMenu
                         icon={<TeamOutlined />}
                         title="Quản lí nhân viên"
-                        key={ID()}>
+                        key={ID()}
+                        disabled={!isAdmin}>
                         <Menu.Item key={ID()}>
                             <Link to="/dashboard/nhanvien">
                                 Xem danh sách nhân viên
@@ -136,7 +147,8 @@ const Dashboard = () => {
                     <SubMenu
                         icon={<TagOutlined />}
                         title="Quản lí loại khách hàng"
-                        key={ID()}>
+                        key={ID()}
+                        disabled={!isAdmin}>
                         <Menu.Item key={ID()}>
                             <Link to="/dashboard/loaikhachhang">
                                 Xem danh sách loại khách hàng
@@ -153,18 +165,13 @@ const Dashboard = () => {
                     <SubMenu
                         icon={<UserOutlined />}
                         title="Quản lí khách hàng"
-                        key={ID()}>
+                        key={ID()}
+                        disabled={!isAdmin}>
                         <Menu.Item key={ID()}>
                             <Link to="/dashboard/khachhang">
                                 Xem danh sách khách hàng
                             </Link>
                         </Menu.Item>
-
-                        {/* <Menu.Item key={ID()}>
-                            <Link to="/dashboard/khachhang/add">
-                                Thêm khách hàng
-                            </Link>
-                        </Menu.Item> */}
                     </SubMenu>
                 </Menu>
             </Sider>

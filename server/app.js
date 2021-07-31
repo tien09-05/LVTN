@@ -41,4 +41,5 @@ app.use("/api/dondatphong", dondatphongRoute);
 app.use("/api/hoadon", hoadonRoute);
 app.use("/api/baidanhgia", baidanhgiaRoute);
 
-app.listen(8000, () => console.log(`Connect app successful 8000`));
+const port = process.env.PORT || 8000;
+app.listen(port, () => console.log(`Connect app successful ${port}`));

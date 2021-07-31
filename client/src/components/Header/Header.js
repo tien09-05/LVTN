@@ -51,72 +51,7 @@ const Header = () => {
                     id="navbarSupportedContent"
                     style={{ backgroundColor: "#000" }}>
                     <ul className="navbar-nav ml-auto">
-                        {/* <li className="nav-item dropdown mx-3">
-                            <a
-                                className="nav-link dropdown-toggle  text-white"
-                                href="_#"
-                                id="navbarDropdown"
-                                data-toggle="dropdown">
-                                <img
-                                    src={
-                                        process.env.PUBLIC_URL +
-                                        "/assets/img/flag-vie.png"
-                                    }
-                                    className="rounded-circle"
-                                    width={28}
-                                    alt=""
-                                />
-                            </a>
-                            <div
-                                className="dropdown-menu dropdown-menu-right "
-                                aria-labelledby="navbarDropdown">
-                                <a
-                                    className="dropdown-item text-white text-right"
-                                    href="_#">
-                                    <img
-                                        src={
-                                            process.env.PUBLIC_URL +
-                                            "/assets/img/flag-eng.png"
-                                        }
-                                        className="rounded-circle"
-                                        width={28}
-                                        alt=""
-                                    />
-                                </a>
-                            </div>
-                        </li>
 
-                        {window.location.pathname.includes("/dashboard") ? (
-                            ""
-                        ) : (
-                            <>
-                                <li className="dropdown-menu-right  nav-item dropdown mx-3">
-                                    <a
-                                        className="nav-link dropdown-toggle text-white"
-                                        href="_#"
-                                        id="navbarDropdown"
-                                        data-toggle="dropdown">
-                                        Hồ Chí Minh
-                                    </a>
-                                    <div
-                                        className="dropdown-menu text-right"
-                                        aria-labelledby="navbarDropdown">
-                                        <a
-                                            className="dropdown-item text-white"
-                                            href="_#">
-                                            Hà Nội
-                                        </a>
-                                    </div>
-                                </li>
-                                <li className="dropdown-menu-right  nav-item mx-3 hide-on-mobile">
-                                    <a
-                                        className="nav-link btn btn__main"
-                                        href="_#">
-                                        Đặt nhanh
-                                    </a>
-                                </li>
-                            </>
-                        )} */}
                         <li className="dropdown-menu-right  nav-item dropdown mx-3">
                             {auth ? (
                                 <>
@@ -131,21 +66,24 @@ const Header = () => {
                                     <div
                                         className="dropdown-menu"
                                         aria-labelledby="navbarDropdown">
-                                        <Link
-                                            className="dropdown-item text-white my-2"
-                                            to={`/member/account`}>
-                                            Thông tin cá nhân
-                                        </Link>
-                                        <Link
-                                            className="dropdown-item text-white my-2"
-                                            to={`/member/typeCustomer`}>
-                                            Quyền lợi thành viên
-                                        </Link>
-                                        <Link
-                                            className="dropdown-item text-white my-2"
-                                            to={`/voucher`}>
-                                            Đổi Voucher
-                                        </Link>
+
+                                        {!auth.chucvu && (<>
+                                            <Link
+                                                className="dropdown-item text-white my-2"
+                                                to={`/member/account`}>
+                                                Thông tin cá nhân
+                                            </Link>
+                                            <Link
+                                                className="dropdown-item text-white my-2"
+                                                to={`/member/typeCustomer`}>
+                                                Quyền lợi thành viên
+                                            </Link>
+                                            <Link
+                                                className="dropdown-item text-white my-2"
+                                                to={`/voucher`}>
+                                                Đổi Voucher
+                                            </Link></>)}
+
                                         <button
                                             className="dropdown-item text-white my-2"
                                             onClick={Logout}>
