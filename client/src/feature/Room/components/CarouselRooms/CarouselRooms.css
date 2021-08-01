@@ -1,0 +1,75 @@
+
+
+
+
+
+.carousel {
+    position: relative;
+}
+.carousel .item {
+    cursor: pointer;
+    position: relative;
+}
+
+.carousel .item .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #000;
+    opacity: 0.55;
+    display: none;
+}
+.carousel .item.active .overlay{
+    border: 2px solid #e79a23;
+    display: block;
+}
+.carousel .item:hover {
+    border: 2px solid #e79a23;
+}
+.carousel .item:hover .overlay,
+.carousel .item:hover .item__content {
+    display: block;
+}
+.app {
+    overflow: hidden;
+}
+.nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.slick-arrow.slick-prev,.slick-arrow.slick-next{
+    width: 36px !important;
+    height: 78px !important;
+    background-color: #e79a23 !important;
+}
+.slick-arrow.slick-prev{
+    left: 13px !important;
+
+}
+.slick-arrow.slick-next{
+    right:13px !important;
+
+}
+.slick-arrow.slick-prev:hover,
+.slick-arrow.slick-next:hover {
+    background-color: #000 !important;
+    outline: none;
+    transition: 0.5s;
+}
+
+
+
+@media screen and (max-width: 1024px) {
+    .hide-on-mobile {
+        display: none;
+    }
+    .challenges {
+        margin-top: 100px;
+    }
+    .challenges__title {
+        font-size: 28px;
+    }
+}

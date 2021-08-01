@@ -1,0 +1,14 @@
+.contact {
+    padding: 50px 0;
+}
+
+.contact a:hover {
+    color: #e79a23 !important;
+    text-decoration: none;
+    cursor: pointer;
+}
+@media screen and (max-width: 1024px) {
+    .hide-on-mobile {
+        display: none;
+    }
+}

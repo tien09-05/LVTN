@@ -1,0 +1,21 @@
+.detail-voucher{
+    margin: 110px auto 0 ;
+    max-width: 1300px;
+    color: #fff;
+    padding: 70px 0;
+}
+.detail-voucher__value{
+    color: orange;
+}
+
+.ant-carousel .slick-next {
+    right: 15px;
+}
+.ant-carousel .slick-prev {
+    left: 15px;
+    z-index: 100;
+}
+
+.ant-card{
+    background: transparent !important;
+}

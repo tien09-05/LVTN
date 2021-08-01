@@ -1,0 +1,17 @@
+.voucher{
+    margin: 110px auto 0 ;
+    max-width: 1400px 
+}
+.ant-card-body{
+    padding: 24px 0;
+}
+
+.voucher__name{
+    color: #fff;
+    font-weight: bold;
+    font-size: 24px;
+}
+.voucher__name:hover{
+    color:orange
+
+}

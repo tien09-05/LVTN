@@ -1,0 +1,11 @@
+.ant-picker-content td{
+    height: 30px;
+}
+.ant-picker-input > input {
+    color: #000;
+}
+
+.datapicker {
+    border: none !important;
+    background-color: #fff !important;
+}
