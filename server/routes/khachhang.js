@@ -1,5 +1,5 @@
 const express = require("express");
-const controllerKhachHang = require("../controllers/khachHang");
+const controllerKhachHang = require("../controllers/khachhang");
 const router = express.Router();
 
 router.route("/").get(controllerKhachHang.getAllKhachHang);
