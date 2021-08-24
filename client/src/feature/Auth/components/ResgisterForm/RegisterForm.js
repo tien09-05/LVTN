@@ -18,6 +18,9 @@ const RegisterForm = () => {
         if (res.success) {
             toast.success(res.message);
             history.push("/auth/login");
+        } else {
+            toast.error(res.message);
+
         }
     };
 
@@ -110,21 +113,7 @@ const RegisterForm = () => {
                         trước các quyền lợi và ưu đãi của chương trình thành
                         viên này
                     </div>
-                    <div className="form-check text-center w-100 mt-4">
-                        <input
-                            className="form-check-input"
-                            type="checkbox"
-                            id="gridCheck1"
-                            style={{
-                                width: "20px",
-                                height: "20px",
-                                float: "none",
-                            }}
-                        />
-                        <label className="form-check-label ml-2 pt-1">
-                            Tôi đồng ý
-                        </label>
-                    </div>
+
                     <button
                         type="submit"
                         className="btn btn__main text-center mx-auto mt-5 ">

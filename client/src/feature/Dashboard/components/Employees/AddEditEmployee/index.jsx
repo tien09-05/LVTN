@@ -39,9 +39,15 @@ const AddEditEmployee = () => {
         } else {
             values.ngaySinh = values.ngaySinh._d.toLocaleDateString();
             employeeApi.createEmployee(values).then((res) => {
-                toast.success(res.message);
+                if(res.success){
+                    toast.success(res.message);
                 form.setFieldsValue(defaultValuesForm);
-            });
+                }else{
+                    toast.error(res.message);
+
+                }
+            
+            }).catch(error=>console.log(error));
         }
     };
 

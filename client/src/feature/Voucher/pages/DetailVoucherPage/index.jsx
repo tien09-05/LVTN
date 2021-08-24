@@ -3,13 +3,14 @@ import { Row, Col } from "antd";
 import "./style.css";
 import { Carousel } from "antd";
 import { Card } from "antd";
-import { Link, useParams } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { customerApi } from "../../../../api/customerApi";
 import { toast } from "react-toastify";
 import { addVoucherAction } from "../../../Auth/authSlice";
 import { Modal } from "antd";
 const DetailVoucherPage = ({ vouchers }) => {
+    const history = useHistory();
     const { id } = useParams();
     const dispatch = useDispatch();
 
@@ -51,7 +52,10 @@ const DetailVoucherPage = ({ vouchers }) => {
             dispatch(addVoucherAction({ voucher }));
 
             toast.success(res.message);
-            window.location.replace("/voucher");
+            setTimeout(() => {
+                // window.location.replace("/voucher");
+                history.push("/voucher");
+            }, 500);
         }
     };
     return (
@@ -95,7 +99,7 @@ const DetailVoucherPage = ({ vouchers }) => {
                                 Đổi Voucher
                             </button>
                             <Modal
-                                title="Basic Modal"
+                                title="Thông báo"
                                 visible={isModalVisible}
                                 onOk={handleOk}
                                 onCancel={handleCancel}

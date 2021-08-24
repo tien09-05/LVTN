@@ -13,7 +13,7 @@ const KhachHangSchema = new Schema(
         loaiKhachHang: {
             type: Schema.Types.ObjectId,
             ref: "LoaiKhachHang",
-            default: "60b21e48e7251d1e58431288",
+            default: "61251df49ecb5f00158ec3e7",
         },
         voucher: [
             {

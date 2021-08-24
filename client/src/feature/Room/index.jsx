@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter, Switch, Route, useRouteMatch } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
 import DetailRoomPage from "./pages/DetailRoomPage/DetailRoomPage";
@@ -12,7 +12,8 @@ const Room = () => {
     useEffect(() => {
         dispatch(getAllRoomsAsync());
     }, [dispatch]);
-
+     
+    
     return (
         <>
             {rooms ? (
@@ -38,3 +39,4 @@ const Room = () => {
 };
 
 export default Room;
+

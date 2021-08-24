@@ -14,6 +14,14 @@ const getAllNhanVien = async (req, res, next) => {
 };
 const signUpNhanVien = async (req, res, next) => {
     try {
+        let checkEmail = await NhanVien.findOne({ email: req.body.email });
+        if (checkEmail)
+            return res.json({ success: false, message: "Email đã tồn tại !!!" });
+
+        let checkSDT = await NhanVien.findOne({ soDienThoai: req.body.soDienThoai });
+        if (checkSDT)
+            return res.json({ success: false, message: "Số điện thoại đã tồn tại !!!" });
+
         const nhanVien = new NhanVien(req.body);
         await nhanVien.save();
         res.json({

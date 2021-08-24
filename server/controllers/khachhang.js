@@ -3,13 +3,15 @@ const JWT = require("jsonwebtoken");
 
 const getAllKhachHang = async (req, res, next) => {
     try {
-        const allKhachHang = await KhachHang.find({})
+        const allKhachHang = await KhachHang.find({}).sort({ voucher: 1 }).limit(2)
             .populate("loaiKhachHang")
             .populate("voucher");
+        const array = [...allKhachHang]
+
         res.json({
             success: true,
             message: "Lấy danh sách khách hàng thành công !!!",
-            data: allKhachHang,
+            data: array.sort((a, b) => b.voucher.length - a.voucher.length),
         });
     } catch (error) {
         console.log(error);
@@ -17,11 +19,28 @@ const getAllKhachHang = async (req, res, next) => {
 };
 const registerKhachHang = async (req, res, next) => {
     try {
-        // create KhachHang
+        // simple check
+        const checkEmail = await KhachHang.findOne({ email: req.body.email })
+        if (checkEmail) {
+            return res.json({
+                success: false,
+                message: "Email đã tồn tại !!!",
+
+            });
+        }
+
+        const checkSDT = await KhachHang.findOne({ soDienThoai: req.body.soDienThoai })
+        if (checkSDT) {
+            return res.json({
+                success: false,
+                message: "SDT đã tồn tại !!!",
+            });
+        }
+
+        // all good, create KhachHang
         const khachHang = new KhachHang(req.body);
         await khachHang.save();
-
-        res.json({
+        return res.json({
             success: true,
             message: "Đăng ký thành công !!!",
             // token,
@@ -43,11 +62,14 @@ const loginKhachHang = async (req, res, next) => {
         // valid KhachHang simple
         if (!khachHang) {
             return res
-                .status(400)
-                .json("Email hoặc mặt khẩu không đúng !!! (Email)");
+                .json({
+                    success: false,
+                    message: "Email hoặc mặt khẩu không đúng !!! (Email)",
+                });
         }
+
         if (khachHang.matKhau !== req.body.matKhau) {
-            return res.status(400).json({
+            return res.json({
                 success: false,
                 message: "Email hoặc mặt khẩu không đúng !!!",
             });

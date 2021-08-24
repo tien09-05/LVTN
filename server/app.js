@@ -15,8 +15,16 @@ const dondatphongRoute = require("./routes/dondatphong");
 const hoadonRoute = require("./routes/hoadon");
 const baidanhgiaRoute = require("./routes/baidanhgia");
 
+// mongoose
+//     .connect("mongodb+srv://tien09-05:123123123@cluster0.mg6k7.mongodb.net/luanvan?retryWrites=true&w=majority", {
+//         useNewUrlParser: true,
+//         useUnifiedTopology: true,
+//         useFindAndModify: false,
+//         useCreateIndex: true,
+//     })
+//     .then(() => console.log("Connected Database"));
 mongoose
-    .connect("mongodb+srv://tien09-05:123123123@cluster0.mg6k7.mongodb.net/luanvan?retryWrites=true&w=majority", {
+    .connect("mongodb://localhost/luanvan", {
         useNewUrlParser: true,
         useUnifiedTopology: true,
         useFindAndModify: false,

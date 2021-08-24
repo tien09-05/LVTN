@@ -32,6 +32,8 @@ const LoginForm = ({ isNhanVien }) => {
                     toast.success(res.message);
                     dispatch(login(res.nhanVien));
                     history.push("/dashboard");
+                } else {
+                    toast.error(res.message);
                 }
             } else {
                 const res = await authApi.loginKhachHang(data);
@@ -46,6 +48,8 @@ const LoginForm = ({ isNhanVien }) => {
                     toast.success(res.message);
                     dispatch(login(res.khachHang));
                     history.push("/");
+                } else {
+                    toast.error(res.message);
                 }
             }
         } catch (error) {

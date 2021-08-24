@@ -3,6 +3,7 @@ import { Table, Space } from "antd";
 import { employeeApi } from "../../../../../api/employeeApi";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 const TableEmployee = () => {
     const columns = [
         {
@@ -26,11 +27,6 @@ const TableEmployee = () => {
             key: "email",
         },
         {
-            title: "Mật khẩu",
-            dataIndex: "matKhau",
-            key: "matKhau",
-        },
-        {
             title: "Số điện thoại",
             dataIndex: "soDienThoai",
             key: "soDienThoai",
@@ -49,25 +45,40 @@ const TableEmployee = () => {
         {
             title: "Action",
             key: "action",
-            render: (text, record) => (
-                <Space size="middle">
-                    <Link
-                        to={`/dashboard/nhanvien/edit/${record._id}`}
-                        className="btn btn-warning ">
-                        Edit
-                    </Link>
-                    <button
-                        onClick={() => handleDelete(record._id)}
-                        className="btn btn-danger ">
-                        Delete
-                    </button>
-                </Space>
-            ),
+            render: (text, record) => {
+                if (auth && record._id === auth._id) {
+                    return (
+                        <Space size="middle">
+                            <Link
+                                to={`/dashboard/nhanvien/edit/${record._id}`}
+                                className="btn btn-warning ">
+                                Edit
+                            </Link>
+                        </Space>
+                    );
+                } else {
+                    return (
+                        <Space size="middle">
+                            <Link
+                                to={`/dashboard/nhanvien/edit/${record._id}`}
+                                className="btn btn-warning ">
+                                Edit
+                            </Link>
+                            <button
+                                onClick={() => handleDelete(record._id)}
+                                className="btn btn-danger ">
+                                Delete
+                            </button>
+                        </Space>
+                    );
+                }
+            },
         },
     ];
 
     // state
     const [data, setData] = useState(null);
+    const auth = useSelector((state) => state.auth);
     // function
     const handleDelete = (id) => {
         employeeApi.deleteEmployee(id).then((res) => {

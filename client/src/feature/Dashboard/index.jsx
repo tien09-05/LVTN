@@ -67,12 +67,6 @@ const Dashboard = () => {
                                 Xem danh sách đơn đặt phòng
                             </Link>
                         </Menu.Item>
-
-                        <Menu.Item key={ID()}>
-                            <Link to="/dashboard/dondatphong/add">
-                                Thêm đơn đặt phòng
-                            </Link>
-                        </Menu.Item>
                     </SubMenu>
 
                     <SubMenu

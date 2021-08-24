@@ -75,7 +75,7 @@ const Book = ({ room }) => {
     return (
         <>
             <Modal
-                title="Basic Modal"
+                title="Thông báo"
                 visible={isModalVisible}
                 onOk={handleOk}
                 onCancel={handleCancel}
@@ -145,9 +145,9 @@ const Book = ({ room }) => {
                             <Button
                                 disabled={
                                     newCheckouts &&
-                                    newCheckouts.findIndex(
-                                        (checkout) => checkout.gioChoi === item
-                                    ) !== -1
+                                        newCheckouts.findIndex(
+                                            (checkout) => checkout.gioChoi === item
+                                        ) !== -1
                                         ? true
                                         : false
                                 }
