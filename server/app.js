@@ -16,19 +16,22 @@ const hoadonRoute = require("./routes/hoadon");
 const baidanhgiaRoute = require("./routes/baidanhgia");
 
 mongoose
-    .connect("mongodb://localhost/luanvan", {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-        useFindAndModify: false,
-        useCreateIndex: true,
-    })
-    .then(() => console.log("Connected Database"));
+  .connect(
+    "mongodb+srv://tien09-05:123123123@cluster0.mg6k7.mongodb.net/luanvan?retryWrites=true&w=majority",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useFindAndModify: false,
+      useCreateIndex: true,
+    }
+  )
+  .then(() => console.log("Connected Database"));
 
 app.use(cors());
 app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ limit: "50mb", extended: true }));
 app.get("/", (req, res) => {
-    res.json({ success: true });
+  res.json({ success: true });
 });
 
 app.use("/api/chinhanh", chinhanhRoute);
